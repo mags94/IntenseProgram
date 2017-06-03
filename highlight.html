@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h4>Highlight problem</h4>
+<script type="text/javascript">
+function HoverSearch(lines) {
+  this.lines = lines
+}
+var arrX=[];
+var arrY=[];
+var finalarray=[];
+HoverSearch.prototype.search = function(x, y, maxDist) {
+	for(i=0;i<lines.length;i++){
+		 arrX.push(Math.sqrt((lines[i].x1-x)^2 + (lines[i].y1-y)^2))
+		 arrY.push(Math.sqrt((lines[i].x2-x)^2 + (lines[i].y2-y)^2))
+		}
+		for(i=0;i<lines.length;i++){
+		if(arrX[i]<=maxDist || arrY[i]<=maxDist){
+			finalarray.push(lines[i])
+		}
+	}
+
+		if(finalarray.length>0){
+			return finalarray
+		}
+		else
+			return null
+		
+	}
+		
+		
+
+// Usage example 
+var lines = [
+  {
+    x1: 0,
+    y1: 10,
+    x2: 20,
+    y2: 10
+  },
+  {
+    x1: 10,
+    y1: 100,
+    x2: 40,
+    y2: 60
+  },
+  {
+    x1: 35,
+    y1: 40,
+    x2: 20,
+    y2: 60
+  },
+  {
+    x1: 30,
+    y1: 60,
+    x2: 70,
+    y2: 10
+  }
+   
+]
+
+var hoverSearch = new HoverSearch(lines)
+var returnvalue=hoverSearch.search(10,12,4)
+if(returnvalue!=null){
+	for(i=0;i<returnvalue.length;i++)
+		console.log(returnvalue[i])
+}
+
+else
+	console.log("None of the lines closer")
+
+
+
+</script>	
+</body>
+</html>
