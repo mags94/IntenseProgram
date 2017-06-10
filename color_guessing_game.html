@@ -10,7 +10,7 @@ var color=["blue","cyan","gold","grey","orange","red","yellow","white"];
 var num = Math.floor(Math.random()*(color.length));
 var my_color=color[num];
 while(check){
-var choice_Case=prompt("I am thinking of one of these colors blue,cyan,gold,grey,orange,red,yellow,white.\n what color am thinking of","enter color");
+var choice_Case=prompt("I am thinking of one of these colors \n blue,cyan,gold,grey,orange,red,yellow,white.\n \n what color am thinking of","enter color");
 var choice=choice_Case.toLowerCase();
 function isvalid(){
 	var flag=0;
@@ -25,19 +25,20 @@ function isvalid(){
 
 if(isvalid()){
 	if(choice === my_color){
-		alert("congratulations You have guessed it right!. \n It took you " + count + " guess  for finishing the game");
+		alert("congratulations You have guessed it right!.\n \n It took you " + count + " guess to finish the game");
 		document.body.style.background=choice;
+		alert("You can see the color in backrgound");
 		check=0;
 	}
 	else if(choice < my_color)
-		alert("Sorry. Your guess is incorrect. Hint: Your guess is alphabetically lower than my color");
+		alert("Sorry. Your guess is incorrect.\n Hint: Your guess is alphabetically lower than my color");
 
 	else 
-		alert("Sorry. Your guess is incorrect. Hint: Your guess is alphabetically higher than my color");
+		alert("Sorry. Your guess is incorrect. \n Hint: Your guess is alphabetically higher than my color");
 
 }
 else
-	alert("I dont recognise your color. try again!");
+	alert("I dont recognise your color. \n Try again!");
 
 count++;
 }
