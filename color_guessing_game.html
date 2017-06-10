@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> Guessing Color- Game
+</head>
+<body>
+<script type="text/javascript">
+var check=1;
+var count=1;
+var color=["blue","cyan","gold","grey","orange","red","yellow","white"];
+var num = Math.floor(Math.random()*(color.length));
+var my_color=color[num];
+while(check){
+var choice_Case=prompt("I am thinking of one of these colors blue,cyan,gold,grey,orange,red,yellow,white.\n what color am thinking of","enter color");
+var choice=choice_Case.toLowerCase();
+function isvalid(){
+	var flag=0;
+	for(i=0;i<color.length;i++){
+		if(color[i]===choice){
+			flag=1;
+			break; 
+		}
+	}
+	return flag;
+}
+
+if(isvalid()){
+	if(choice === my_color){
+		alert("congratulations You have guessed it right!. \n It took you " + count + " guess  for finishing the game");
+		document.body.style.background=choice;
+		check=0;
+	}
+	else if(choice < my_color)
+		alert("Sorry. Your guess is incorrect. Hint: Your guess is alphabetically lower than my color");
+
+	else 
+		alert("Sorry. Your guess is incorrect. Hint: Your guess is alphabetically higher than my color");
+
+}
+else
+	alert("I dont recognise your color. try again!");
+
+count++;
+}
+</script>
+</body>
+</html>
