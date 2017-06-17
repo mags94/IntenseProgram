@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head> countdown program method 3 in JS
+</head>
+<body>
+<script type="text/javascript">
+var j=1;
+var bool=true;
+while(bool){
+	var num= prompt("Enter the number from which countdown should start",20);
+if(num>0){
+	bool=false;
+	for(var i=num;i>=0;i--){
+			(function(i){
+				setTimeout(function(){  
+		console.log(i +"\n")},j++ *1000);
+		}(i))
+			}
+}
+else
+{
+	console.log("pls enter valid number");
+
+}
+
+}	
+
+</script>
+</body>
+</html>
+
+
