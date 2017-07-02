@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>test</title>
+</head>
+<body>
+    <div id="one">
+      <div id="two">
+        <div id="three">
+          <div id="four">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>count of nodes</p>
+    <div id="one">
+      <div id="two">
+        <div id="three">
+          <div id="four">
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>
+<script type="text/javascript">
+//console.log(document.body.childElementCount)
+var count=document.body.childElementCount -1;
+var condition=count;
+//console.log(document.body.children)
+//console.log(count);
+for(var i=0;i<condition;i++){
+	//console.log("i"+ i)
+	var body_node=document.body.children[i];
+	//console.log(body_node)
+	for(var j=0;j<document.body.children.length;j++){
+	while(body_node.childElementCount >0){
+		count+=body_node.childElementCount
+		if(body_node.children[j] !=undefined){
+			body_node=body_node.children[j]
+		//console.log(body_node)
+		}
+	}	
+	}
+
+}
+console.log(count +1 +" nodes")// Added 1 to count body tag.
+	
+</script>
+</html>
