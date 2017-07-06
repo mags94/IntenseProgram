@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>test</title>
+</head>
+<body>
+    <div id="one">
+     <p></p>
+      <div id="two">
+        <div id="three">
+          <div id="four">
+          </div>
+          <div id="third's second child"> </div>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <p>this is second child of body</p>
+    <p></p>
+</body>
+<script type="text/javascript">
+
+var number_of_nodes=function(){
+  /**
+This function provides the number of nodes present in a webpage.
+**/
+var count=document.body.childElementCount -1; // count of body's child . Reducing 1 to eliminate script tag from count.
+var condition_variable=count; // assigning count of body's child to variable
+/**
+Outer for loop gets the child of body one by one in current_node. 
+Inner for loop helps to count the grand child and great grand childs etc of body if any.
+**/
+for(var i=0;i<condition_variable;i++){  
+  var current_node=document.body.children[i];
+  var count2=current_node.childElementCount
+  var condition_variable2=count2
+  count+=count2
+  for(var j=0;j<condition_variable2;j++){
+    if(current_node.children[j] !=undefined){
+    current_node=current_node.children[j]
+    if(current_node.childElementCount >0){
+        count+=current_node.childElementCount
+    var k=0
+        while(current_node.children[k] !=undefined){
+          current_node=current_node.children[k]
+          if(current_node.childElementCount >0){
+              count+=current_node.childElementCount           
+          }
+          else{
+            current_node=current_node.parentElement
+          }
+       k++ 
+
+    }
+        
+  }
+  else{
+  current_node=current_node.parentElement
+}
+}
+
+}
+  }
+  
+return count
+}
+var result=number_of_nodes();
+//console.log(result)
+console.log(result +1 +" nodes")// Added 1 inorder to count body tag in number of nodes.
+	
+</script>
+</html>
