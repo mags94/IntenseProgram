@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>Using Recursion</title>
+</head>
+<body>
+    <div id="one">
+     <p></p>
+      <div id="two">
+        <div id="three">
+          <div id="four">
+            <p></p>
+            <p></p>
+          </div>
+          <div id="third's second child"> </div>
+        </div>
+      </div>
+    </div>
+    <p>this is second child of body</p>
+    <p></p>
+</body>
+<script type="text/javascript">
+
+/* number_of_nodes is the recursive function which increments the count variable whenever it is leaf node(no more child)
+count variable gives the number of nodes present in a web page.
+*/
+var count=0 // Global variable
+var number_of_nodes=function (current_node){
+    if(current_node.childElementCount > 0)
+      for(var i=0;i<current_node.childElementCount;i++)
+        number_of_nodes(current_node.children[i])
+    count+=1
+}
+
+var current_node=document.body
+
+number_of_nodes(current_node) // passing entire body tag to the function 
+  
+console.log(count -1 +" nodes") // subtracting 1 to reduce the count of script tag
+	
+</script>
+</html>
