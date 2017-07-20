@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>reversal of string using recursion</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+var result="";	
+var reverse=function(word){
+		var i=0;
+		if(word.length >1)
+			reverse(word.substring(i+1))
+		result+=word.charAt(i)
+	
+return result
+}
+
+var s="It is an example for reversing string";
+var reversed_string=reverse(s);
+console.log(reversed_string);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</script>
+</html>
